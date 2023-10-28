@@ -11,12 +11,14 @@ app.use(cors())
 
 const userRoute = require('./routes/userRoute')
 const companyRoute = require('./routes/companyRoute')
+const familyRoute = require('./routes/familyRoute')
 require('dotenv').config()
 app.use(express.json())
 const dbConfig = require('./config/dbConfig')
 
-app.use('/', userRoute)
+app.use('/users', userRoute)
 app.use('/companies',companyRoute)
+app.use('/familys',familyRoute)
 
 
 
