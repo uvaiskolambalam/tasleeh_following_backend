@@ -21,6 +21,9 @@ const userSchema = new mongoose.Schema(
         work_type: {
             type:String
         },
+        visa_type: {
+            type:String
+        },
         visit_visa_date: {
             type:String
         },

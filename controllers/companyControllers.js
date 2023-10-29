@@ -95,6 +95,40 @@ module.exports = {
             console.log(error);
             
         }
+    },
+    getCompaniesAboutExpiry: async (req, res, next) => {
+        try {
+            const companyData = await Company.find()
+            // console.log(companyData,'companyData');
+            // const today = new Date()
+            // const targetDate = new Date(companyData.license_exp)
+            // const defference=targetDate - today
+            // const dum = companyData.license_exp - new Date() 
+
+            const currentDate = new Date();
+
+           const thirtyDaysFromToday = new Date();
+            thirtyDaysFromToday.setDate(currentDate.getDate() + 30);
+            console.log(thirtyDaysFromToday,'thirtyDaysFromToday');
+            let count = 0;
+
+for (const item of companyData) {
+    const date = item.license_exp;
+    const timeDifference = date - currentDate;
+    console.log(timeDifference,'poda');
+  const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+  
+  if (daysDifference >= 0 && daysDifference <= 30) {
+    count++;
+  }
+}
+            console.log(count,'dummmm');
+            // if (companyData.license_exp - new Date() <= 60) {
+                
+            // }
+        } catch (error) {
+            console.log(error);
+        }
     }
     
 }

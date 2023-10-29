@@ -8,7 +8,7 @@ app.use(cors())
 
 
 
-
+const domesticRoute = require('./routes/domesticRoute')
 const userRoute = require('./routes/userRoute')
 const companyRoute = require('./routes/companyRoute')
 const familyRoute = require('./routes/familyRoute')
@@ -17,6 +17,7 @@ app.use(express.json())
 const dbConfig = require('./config/dbConfig')
 
 app.use('/users', userRoute)
+app.use('/domestic',domesticRoute)
 app.use('/companies',companyRoute)
 app.use('/familys',familyRoute)
 

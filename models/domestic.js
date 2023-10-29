@@ -2,24 +2,24 @@ const mongoose = require('mongoose')
 const { ObjectId } = mongoose.Schema
 
 
-const familySchema = new mongoose.Schema(
+const domesticSchema = new mongoose.Schema(
     {
-        sponser_name: {
+        domestic_sponser_name: {
             type: String,
             required: true
         },
-        sponser_id: {
+        domestic_sponser_eid: {
             type: Number,
             required: true
         },
-        sponser_company: {
+        domestic_sponser_nationality: {
             type: String,
-            // required:true
+            required:true
         },
     },
     {
         timestamps: true
     }
 );
-const familyModel = mongoose.model('familys', familySchema)
-module.exports=familyModel
+const domesticModel = mongoose.model('domestics', domesticSchema)
+module.exports=domesticModel
